@@ -1,0 +1,245 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i");
+
+/* GLOBAL COLORS */
+.listing-panel {
+  --listing-bg: #fff;
+  --listing-hilite: #e80000;
+  --listing-hilite-dark: #ad0000;
+  --base-stats-hover: #ffd6d6;
+  --panel-stats: #989898;
+  --active: #0ac700;
+  --trans-dur: all 0.4s;
+}
+
+/* ---------------------------------------- */
+/*
+  GLOBAL STYLE & RESET
+  this should be set by the main page, not the listings section
+*/
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+  /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
+  font-family: "Nunito Sans", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+sup {
+  position: relative;
+  top: 2px;
+  font-size: 70%;
+  margin-right: 1px;
+}
+/* ---------------------------------------- */
+
+
+/* ---------------------------------------- */
+/*
+  section listings
+  resets here to control font formatting
+*/
+.section-listings {
+  font-size: 0.85rem;
+  display: flex;
+  margin: 0 auto;
+  max-width: 1100px;
+  background-color: var(--listing-bg);
+}
+.section-listings p {
+  margin: 0;
+}
+.section-listings a {
+  color: var(--listing-hilite);
+  text-decoration: none;
+}
+
+
+/* ---------------------------------------- */
+/* listing-panels */
+
+.listing-panels {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: white;
+}
+
+.listing-panel {
+  width: 100%;
+  margin: 0.5rem 1rem;
+  border: solid 1px var(--panel-stats);
+  border-radius: 6px;
+  overflow: hidden;
+}
+@media (min-width: 600px) {
+  .listing-panel {
+    width: 48%;
+    margin: 0.5rem 0.5%;
+  }
+}
+@media (min-width: 810px) {
+  .listing-panel {
+    width: 32.3%;
+    margin: 0.5rem 0.5%;
+  }
+}
+
+.panel-img {
+  min-height: 175px;
+  background-position: center center;
+  background-size: cover;
+}
+.panel-price {
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  width: 100%;
+  text-align: center;
+  padding: 0.25rem 1rem;
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 0 7px rgba(0,0,0,0.2);
+  transition: all 0.2s;
+}
+.panel-price:hover {
+  font-size: 1.5rem;
+  transition: all 0.2s;
+  background: var(--listing-hilite);
+  color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,1);
+}
+/* .panel-price {
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 0.25rem 1rem;
+  background: rgba(255, 255, 255, 0.75);
+  border-bottom-right-radius: 6px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+} */
+
+.panel-addr {
+  font-size: 0.9rem;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 1rem;
+  background: rgba(235, 235, 235, 0.7);
+  cursor: pointer;
+  transition: var(--trans-dur);
+}
+@media (min-width: 501px) {
+  .panel-addr {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+  }
+}
+.panel-addr:hover {
+  background-color: var(--listing-hilite-dark);
+  transition: var(--trans-dur);
+}
+.panel-addr a {
+  color: #000;
+}
+.panel-addr:hover a {
+  color: #fff;
+}
+
+/* ---------------------------------------- */
+/* panel-stats */
+
+.panel-stats {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+.panel-stats div {
+  margin: 0;
+  padding: 0.3125rem 0.625rem;
+  text-align: center;
+  color: var(--panel-stats);
+  border: 1px solid var(--panel-stats);
+  border-right: none; /* remove right border so it doesn't double up */
+}
+.panel-stats div:hover {
+  background-color: var(--base-stats-hover);
+}
+.panel-stats div:first-child {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+.panel-stats div:last-child {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-right: 1px solid var(--panel-stats); /* add back in the right most border */
+}
+.panel-stats span {
+  display: block;
+  font-weight: 500;
+  color: #000 !important;
+}
+
+/* ---------------------------------------- */
+/* panel-features */
+
+.panel-features {
+  list-style-type: none;
+  display: block;
+  color: var(--panel-stats);
+  padding: 0;
+  /* margin: 0.5rem 8.5rem 1rem; */
+  margin: 0.5rem auto 1rem;
+  width: 185px;
+}
+@media (min-width: 501px) {
+  .panel-features {
+    /* margin: 0.5rem 1.875rem 1rem; */
+  }
+}
+
+.panel-features span {
+  color: #000;
+  font-weight: 500;
+}
+.panel-features .active {
+  color: var(--active);
+}
+
+/* ---------------------------------------- */
+/* panel-buttons */
+
+.panel-buttons {
+  text-align: center;
+  margin: 0 0 1rem;
+}
+.panel-btn {
+  border: 1px solid var(--listing-hilite);
+  padding: 0.25rem 0.5rem;
+  margin: 0 0.25rem;
+  cursor: pointer;
+  background-color:white;
+  border-radius: 3px;
+  transition: all 0.2s;
+}
+.panel-btn:hover {
+  background-color: var(--listing-hilite-dark);
+  color: white;
+  transition: all 0.2s;
+}
+.panel-btn i.far {
+  margin-right: 0.125rem;
+}
+
+/* ---------------------------------------- */
+/* listed-by */
+
+.panel-listed-by {
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+  color: var(--panel-stats);
+}
+.panel-list span {
+  color: #000;
+}
